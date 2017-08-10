@@ -1,0 +1,13 @@
+language: java
+
+addons:
+  sonarcloud:
+    organization: "tolpp-github"
+    token:
+      secure: "rasC5NpuasRQrBnKq00rkJuSE8SyLKaLreu4TIhbnu6jvbyZtnCdCIyKiMCo5AHfj/IDcvln5JNKhOeURVoCk8tzJuJq6Sb4nJdBM5hl6Wgzc4egm6PxEbmykS5NjikqU4K4VpFJ7TeE8eMKXy+uJsK7SyobjaIiRv6fWiUezVobAExR4mRR/yKrXnQkJ9jHd9ADuU1rp5qneMXL9Je5wQnWZQIgD7UVNjvVrhzuO653imwC7qY4CuX2OUMUzaV7gof34hvybETJ/F8K6Uk+ktkYMNkCjUjTEBg1yX+2r/SJmKzPXLqu/rRCDSLGdcpp5mueGogBccd1Z1NoCLGKT1zJXc+/ikd58fmaidVurAPZ8iCWRiOqFxI+2h4UR5an3F4lHajoqiHztnT4BnzCrAk81bB8Olmfghtie83CSOsaA+PlC39gzliQhn5gdbdlMIyOtZt5Q3OymaJnjjGV5i/P46put54VSK8lROGTE8n2HSbHbBEp3KPfHBT0achK8exuuqMHG6s2nv4ULvDX3VXeZzyJcw9zeA1+nxsiHYhL0WiYjkK8CdstbjEI/vQYCwks2ewDJ1cAZqkRhdws2OdMKsIeI7n6Y+UYLW7XiW/kJ1A7Bu6J1fwRxpwE3xfrNsHAK2RNdoY9LCe5NfeL9YPbxbpFZYstPFDBKGwSADM="
+
+script:
+  - ./gradlew sonarqube
+
+after_success:
+- ./gradlew test jacocoTestReport coveralls
